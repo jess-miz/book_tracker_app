@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Books Tracker</h1>
+    <form action="/todos/createTodo" method='POST' id="bookForm">
+        <input type="date" placeholder="Enter Book" name='todoItem' id="todoItem" class="todoItem">
+        <input type="text" placeholder="Enter Rating" name='bookRating' id="bookRating">
+        <button type="button" name="button">Submit</button>
+    </form>
+    <ul>
+        <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <img src="">
+                <span><%= el.todo %></span>
+                <span><%= el.rating%></span>
+                <span class='update'>Update</span>
+                <span class='del'> Delete </span>
+            </li>
+        <% }) %>    
+    </ul>
+
+    <h2><%= user.userName %>'s total books are: <%= left %></h2>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+<!--cover, title, author to load on page load
+    fetch info from title of the picture and the author
+    `https://covers.openlibrary.org/b/isbn/${value}-S.jpg` 
+
+    
+
+    how do I get the ID value?? 
+
+    async function fetchImage(url) {
+    const img = new Image();
+    return new Promise((res, rej) => {
+        img.onload = () => res(img);
+        img.onerror = e => rej(e);
+        img.src = url;
+    });
+}
+const img = await fetchImage('https://covers.openlibrary.org/b/isbn/9789113012438-S.jpg');
+const w = img.width;
+const h = img.height;
+
+
+
+
+
+
+-->
